@@ -1,0 +1,151 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Photo Map</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBFUQapX8Qru3qLpgNQ_4mkY2_y2bx1C6c&sensor=true">
+        </script>
+        <style>
+        body {
+            margin:0px;
+            padding:0px;
+            font:normal 15px/20px Arial,sans-serif;
+            background:#fff;
+        }
+
+        #map  {
+            position:absolute;
+            top:0px;
+            bottom:0px;
+            width:200%;
+            left:-50%;
+            transition:opacity 250ms;
+            -moz-transition:opacity 250ms;
+            -webkit-transition:opacity 250ms;
+        }
+
+        .leaflet-popup-pane .leaflet-popup-content-wrapper {
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0;
+        }
+
+        article {
+            background: #FFF;
+            width:260px;
+            position: relative;
+            height:100%;
+            overflow-y: auto;
+        }
+
+        body.not_connected #login {
+            position: relative;
+            z-index: 100;
+        }
+
+        body.not_connected #login button {
+            padding:40px;
+        }
+
+        body.connected #login {
+            display:none;
+        }
+
+        article img {
+            opacity: .5;
+            border:1px solid #FFF;
+        }
+
+        img.selected {
+            opacity: 1;
+            border:1px solid #00408A;
+        }
+        </style>
+
+    </head>
+    <body class="not_connected">
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="fb-root"></div>
+
+        <script>
+        (function() {
+            var e = document.createElement('script'); e.async = true;
+            e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+            document.getElementById('fb-root').appendChild(e);
+        }());
+
+
+        
+
+
+
+        window.fbAsyncInit = function() {
+            FB.init({ appId: '650217345020991', 
+            status: true, 
+            cookie: true,
+            xfbml: true,
+            oauth: true});
+
+            FB.Event.subscribe('auth.statusChange', photoMap.handleStatusChange);
+        };
+        </script>
+
+
+
+
+        <div id="map"></div>
+
+        <article></article>
+
+
+        <div id="login" align="center">
+            <p><button>You have to login to use the app</button></p>
+        </div>
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="bower_components/sass-bootstrap/js/affix.js"></script>
+        <script src="bower_components/sass-bootstrap/js/alert.js"></script>
+        <script src="bower_components/sass-bootstrap/js/dropdown.js"></script>
+        <script src="bower_components/sass-bootstrap/js/tooltip.js"></script>
+        <script src="bower_components/sass-bootstrap/js/modal.js"></script>
+        <script src="bower_components/sass-bootstrap/js/transition.js"></script>
+        <script src="bower_components/sass-bootstrap/js/button.js"></script>
+        <script src="bower_components/sass-bootstrap/js/popover.js"></script>
+        <script src="bower_components/sass-bootstrap/js/carousel.js"></script>
+        <script src="bower_components/sass-bootstrap/js/scrollspy.js"></script>
+        <script src="bower_components/sass-bootstrap/js/collapse.js"></script>
+        <script src="bower_components/sass-bootstrap/js/tab.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
